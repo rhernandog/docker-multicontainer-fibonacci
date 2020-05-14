@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "eslint-plugin-react"
+  ],
+  "rules": {
+    "semi": "error",
+    "react/state-in-constructor": [
+      0
+    ]
+  }
+}
