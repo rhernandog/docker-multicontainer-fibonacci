@@ -62,7 +62,7 @@ class Home extends Component {
             <h3 className="text-center">Indexes Seen</h3>
             {
               this.state.seenIndexes.map((e, i) => {
-                return <span key={`index-${i}`} className="badge badge-light">{e.number}</span>
+                return <span key={`index-${i}`} className="badge badge-light">{e.number}</span>;
               })
             }
           </div>
@@ -84,7 +84,7 @@ class Home extends Component {
           </div>
         </div>
       </div>
-    </div>
+    </div>;
   }
 };
 
