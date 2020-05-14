@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t rhernandog/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run rhernandog/react-test run npm run lint
+
+after_success:
+  - docker build -t rhernandog/multisample-one-client ./client
+  - docker build -t rhernandog/multisample-one-nginx ./nginx
+  - docker build -t rhernandog/multisample-one-server ./server
+  - docker build -t rhernandog/multisample-one-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push rhernandog/multisample-one-client
+  - docker push rhernandog/multisample-one-nginx
+  - docker push rhernandog/multisample-one-server
+  - docker push rhernandog/multisample-one-worker
